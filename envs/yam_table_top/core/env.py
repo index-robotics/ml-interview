@@ -36,7 +36,7 @@ from .scene import YAM_FINGERTIP_GRASP_SITE
 from .wrapper import RobotWrapper, SimWrapper
 
 from envs.common.robot_utils import rotation_6d_to_matrix, T_gripper
-from i2rt.robots.kinematics import Kinematics
+# from i2rt.robots.kinematics import Kinematics
 
 # Default camera position for fixed camera
 DEFAULT_CAMERA_POSITION = np.array([-0.7, 0.0, 0.6])  # 0.7m in front along robot base X axis
@@ -119,6 +119,9 @@ class YAMTableTopEnv:
             render_height: Height of rendered frames in pixels (only used if enable_rendering=True).
             action_mode: Action mode - "joints" for joint angle actions (7 dims) or "pose" for end effector pose actions (10 dims: 3D pos + 6D rot + gripper).
         """
+        
+        assert action_mode == "joints", "Only joint mode is supported for now"
+        
         # Create camera configuration
         self.camera = create_camera_config(camera_type)
 
@@ -206,10 +209,10 @@ class YAMTableTopEnv:
         self._action_mode = action_mode
 
         # Initialize kinematics for IK when using pose mode
-        if self._action_mode == "pose":
-            self.kinematics = Kinematics(model, site_name=YAM_FINGERTIP_GRASP_SITE)
-        else:
-            self.kinematics = None
+        # if self._action_mode == "pose":
+        #     self.kinematics = Kinematics(model, site_name=YAM_FINGERTIP_GRASP_SITE)
+        # else:
+        self.kinematics = None
 
         # Robot base frame correction: YAM robot base frame has X and Y axes flipped
         # (180-degree rotation about Z axis) compared to the expected convention
