@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-interview"
+version = "0.1.0"
+description = "ML Interview environments - YAM tabletop manipulation environments"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mujoco>=3.3.7",
+    "numpy>=1.24.0",
+    "robot-descriptions>=1.21.0",
+    "scipy>=1.16.3",
+    "gymnasium>=0.29.0",
+    "trimesh>=3.20.0",
+    "robosuite>=1.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.1",
+    "ruff>=0.14.5",
+]
+
