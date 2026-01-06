@@ -9,6 +9,7 @@ description = "ML Interview environments - YAM tabletop manipulation environment
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "mink>=0.0.13",
     "mujoco>=3.3.7",
     "numpy>=1.24.0",
     "robot-descriptions>=1.21.0",
