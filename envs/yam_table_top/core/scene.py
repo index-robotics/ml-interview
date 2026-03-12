@@ -78,7 +78,7 @@ def build_table_scene_spec(
 
     ground_mat = spec.add_material()
     ground_mat.name = "groundplane"
-    ground_mat.textures = ["groundplane"]
+    ground_mat.textures = ["groundplane"] + [""] * 9
     ground_mat.texuniform = True
     ground_mat.texrepeat = [5, 5]
     ground_mat.reflectance = 0.0
